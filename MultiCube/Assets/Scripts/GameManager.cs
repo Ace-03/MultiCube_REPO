@@ -1,5 +1,3 @@
-using Photon.Pun;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;

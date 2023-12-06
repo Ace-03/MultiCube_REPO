@@ -3,12 +3,12 @@ using Photon.Pun;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public PlayerMovement movement;
+    public PlayerController controller;
     void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "obstacle") 
         {
-            movement.enabled = false;
+            controller.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
         }
     }
