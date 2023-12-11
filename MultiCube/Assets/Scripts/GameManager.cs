@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviourPun
     public GameObject completeLevelUI;
 
     [Header("Players")]
-    public string playerPreFabLocation;
+    public string[] playerPreFabLocation;
     public PlayerController[] players;
     public Transform[] spawnPoints;
     public int alivePlayers;
@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviourPun
     [PunRPC]
     void SpawnPlayer()
     {
-        GameObject playerObj = PhotonNetwork.Instantiate(playerPreFabLocation, spawnPoints[0].position, Quaternion.identity);/*Random.Range(0, spawnPoints.Length)].position, Quaternion.identity)*/
+            GameObject playerObj = PhotonNetwork.Instantiate(prefabPlayer, spawnPoints[0].position, Quaternion.identity);/*Random.Range(0, spawnPoints.Length)].position, Quaternion.identity)*/
 
-        // initialze the player for all players
-        playerObj.GetComponent<PlayerController>().photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
+            // initialze the player for all players
+            playerObj.GetComponent<PlayerController>().photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }
 
     public PlayerController GetPlayer(int playerId)

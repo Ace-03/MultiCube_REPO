@@ -93,22 +93,47 @@ public class PlayerController : MonoBehaviourPun
 
         //Cube Game Code ***************************************************************************************
 
-        rb.AddForce(0, 0, fowardforce * Time.deltaTime);
+        //Vector3 camFoward = Camera.main.transform.position;
+        //camFoward.y = 0;
+        //camFoward = camFoward.normalized;
 
-        if (Input.GetKey("d"))
+        //Debug.Log(camFoward.x);
+
+        if (id % 2 == 0) 
         {
-            rb.AddForce(sidewaysforce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(fowardforce * Time.deltaTime, 0, 0);
+
+            if (Input.GetKey("d"))
+            {
+                rb.AddForce(0, 0, sidewaysforce * Time.deltaTime, ForceMode.VelocityChange);
+            }
+
+            if (Input.GetKey("a"))
+            {
+                rb.AddForce(0, 0, -sidewaysforce * Time.deltaTime, ForceMode.VelocityChange);
+            }
         }
-
-        if (Input.GetKey("a"))
+        else
         {
-            rb.AddForce(-sidewaysforce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(0, 0, fowardforce * Time.deltaTime);
+
+            if (Input.GetKey("d"))
+            {
+                rb.AddForce(sidewaysforce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            }
+
+            if (Input.GetKey("a"))
+            {
+                rb.AddForce(-sidewaysforce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            }
         }
 
         if (rb.position.y < -2f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
+
+
     }
 
     /*
