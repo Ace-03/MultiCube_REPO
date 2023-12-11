@@ -7,9 +7,9 @@ using Photon.Realtime;
 public class PlayerController : MonoBehaviourPun
 {
     
+    public GameManager gameManager;
     [Header("Info")]
     public int id;
-    public int ID;
     /*
     private int curAttackerId;
 
@@ -137,10 +137,8 @@ public class PlayerController : MonoBehaviourPun
 
         if (rb.position.y < -2f)
         {
-            FindObjectOfType<GameManager>().EndGame();
+                FindObjectOfType<GameManager>().EndGame();
         }
-
-
     }
 
     /*

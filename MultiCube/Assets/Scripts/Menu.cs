@@ -50,8 +50,6 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
             PhotonNetwork.CurrentRoom.IsVisible = true;
             PhotonNetwork.CurrentRoom.IsOpen = true;
         }
-
-       
     }
 
     // changes the currently visable screen
