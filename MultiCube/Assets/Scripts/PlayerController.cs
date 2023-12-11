@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPun
     
     [Header("Info")]
     public int id;
+    public int ID;
     /*
     private int curAttackerId;
 
@@ -56,6 +57,12 @@ public class PlayerController : MonoBehaviourPun
         {
             //GameUI.instance.Initialize(this);
         }
+    }
+
+    public int GetPlayerID()
+    {
+        Debug.Log("Player id in player controller = " + id);
+        return id;
     }
 
     void Update()

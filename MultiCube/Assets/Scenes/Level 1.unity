@@ -4443,6 +4443,46 @@ PrefabInstance:
       propertyPath: 'prefabPlayer.Array.data[3]'
       value: 
       objectReference: {fileID: 8111506507851820842, guid: 94fdbf18eff2c5d469b582e3c36c4a5a, type: 3}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: playerPreFabLocation.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: playerPreFabLocations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocation.Array.data[0]'
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocation.Array.data[1]'
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocation.Array.data[2]'
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocation.Array.data[3]'
+      value: 121
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocations.Array.data[0]'
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocations.Array.data[1]'
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocations.Array.data[2]'
+      value: Player 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191897039961916644, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
+      propertyPath: 'playerPreFabLocations.Array.data[3]'
+      value: Player 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3191897039961916646, guid: 1807f478551a83d4f8e2bd0c0b5b29a8, type: 3}
       propertyPath: m_Name
       value: GameManager
