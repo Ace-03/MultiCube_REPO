@@ -9,7 +9,7 @@ public class PlayerCollision : MonoBehaviour
         if (collisionInfo.collider.tag == "obstacle") 
         {
             controller.enabled = false;
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<PlayerController>().EndGame();
         }
     }
 }

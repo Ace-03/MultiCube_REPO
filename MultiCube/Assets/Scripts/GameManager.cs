@@ -6,8 +6,8 @@ using System.Linq;
 
 public class GameManager : MonoBehaviourPun
 {
-    bool gameHasEnded = false;
-    public float restartDelay = 1f;
+    //bool gameHasEnded = false;
+    //public float restartDelay = 1f;
     public GameObject completeLevelUI;
     public PlayerController playerController;
     //public Player photonPlayer;
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviourPun
         completeLevelUI.SetActive(true);
     }
 
+    /*
+    [PunRPC]
     public void EndGame()
     {
         if (gameHasEnded == false)
@@ -41,12 +43,15 @@ public class GameManager : MonoBehaviourPun
             Invoke("Restart", restartDelay);
         }
     }
+    */
 
+    /*
+    [PunRPC]
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+    */
 
     // Multiplayer
     private void Awake()

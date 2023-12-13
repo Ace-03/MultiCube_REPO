@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class PlayerController : MonoBehaviourPun
 {
-    
+    bool gameHasEnded = false;
+    public float restartDelay = 1f;
     public GameManager gameManager;
     [Header("Info")]
     public int id;
@@ -137,9 +139,35 @@ public class PlayerController : MonoBehaviourPun
 
         if (rb.position.y < -2f)
         {
-                FindObjectOfType<GameManager>().EndGame();
+                EndGame();
         }
     }
+
+    [PunRPC]
+    public void EndGame()
+    {
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("Game Over");
+
+            if (photonView.IsMine)
+            {
+                Debug.Log("Try to restart game for Player #" + id);
+                Invoke("Restart", restartDelay);
+            }
+            
+        }
+    }
+
+    [PunRPC]
+    void Restart()
+    {
+        Debug.Log("Restart game for Player #" + id);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+   
 
     /*
     void TryJump()
@@ -249,5 +277,5 @@ public class PlayerController : MonoBehaviourPun
         GameUI.instance.UpdateHealthBar();
     }
     */
- 
+
 }
