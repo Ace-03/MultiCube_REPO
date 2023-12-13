@@ -16,7 +16,7 @@ public class Score : MonoBehaviourPun
     [PunRPC]
     void Update()
     {
-        scoreText.text = (Time.time).ToString("F2"); ;
+        scoreText.text = (Time.time - startTime).ToString("F2"); ;
     }
 
     [PunRPC]
@@ -25,3 +25,17 @@ public class Score : MonoBehaviourPun
         startTime = Time.time;
     }
 }
+
+/*
+    void Update()
+    {
+        scoreText.text = (PhotonNetwork.Time).ToString("F2"); ;
+    }
+
+    [PunRPC]
+    public void Begin()
+    {
+        startTime = PhotonNetwork.Time;
+    }
+}
+*/
