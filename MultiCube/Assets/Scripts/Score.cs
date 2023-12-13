@@ -5,14 +5,19 @@ using TMPro;
 public class Score : MonoBehaviour
 {
 
-    public Transform player;
+    //public Transform player;
     public TextMeshProUGUI scoreText;
-    // Start is called before the first frame update
+    private float startTime;
 
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = player.position.z.ToString("0");
+        scoreText.text = (Time.time).ToString("F2"); ;
+    }
+
+    public void Begin()
+    {
+        startTime = Time.time;
     }
 }

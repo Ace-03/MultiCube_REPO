@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 1
+  player: {fileID: 8615559205926949404}
   gameManager: {fileID: 0}
   id: 0
   rig: {fileID: 8111506507851820843}

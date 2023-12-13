@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPun
 {
     bool gameHasEnded = false;
     public float restartDelay = 1f;
+    public PlayerController player;
     public GameManager gameManager;
     [Header("Info")]
     public int id;
@@ -164,7 +165,12 @@ public class PlayerController : MonoBehaviourPun
     void Restart()
     {
         Debug.Log("Restart game for Player #" + id);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        player = GameManager.instance.GetPlayer(id);
+        player.transform.position = GameManager.instance.spawnPoints[id-1].position;
+        player.transform.rotation = Quaternion.identity;
+        player.enabled = true;
+        gameHasEnded = false;
     }
 
    
