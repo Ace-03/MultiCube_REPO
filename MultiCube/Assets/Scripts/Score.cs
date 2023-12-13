@@ -11,23 +11,28 @@ public class Score : MonoBehaviourPun
     public TextMeshProUGUI scoreText;
     private float startTime;
 
-
-    // Update is called once per frame
     [PunRPC]
-    void Update()
-    {
-        scoreText.text = (Time.time - startTime).ToString("F2"); ;
-    }
-
-    [PunRPC]
-    public void Begin()
+    public void Start()
     {
         startTime = Time.time;
     }
+
+ 
+    [PunRPC]
+    void Update()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            scoreText.text = (Time.time - startTime).ToString("F2"); ;
+        }
+        
+    }
+
+    
 }
 
 /*
-    void Update()
+   void Update()
     {
         scoreText.text = (PhotonNetwork.Time).ToString("F2"); ;
     }
