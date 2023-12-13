@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviourPun
         */
     }
 
+    [PunRPC]
     void Move() 
     {
         /*
@@ -138,9 +139,10 @@ public class PlayerController : MonoBehaviourPun
             }
         }
 
-        if (rb.position.y < -2f)
+        if (rb.position.y < -2f && photonView.IsMine)
         {
-                EndGame();
+            Debug.Log("Player #" + id + " fell off the map");
+            EndGame();
         }
     }
 
