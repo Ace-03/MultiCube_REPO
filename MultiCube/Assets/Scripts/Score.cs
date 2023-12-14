@@ -26,6 +26,7 @@ public class Score : MonoBehaviourPun
             scoreText.text = (Time.time - startTime).ToString("F2"); ;
         }
         
+        
     }
 
     
