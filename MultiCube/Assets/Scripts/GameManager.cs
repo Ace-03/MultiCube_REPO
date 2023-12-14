@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviourPun
     void SpawnPlayer()
     {
         Debug.Log("Player id in Game manager = " + PhotonNetwork.LocalPlayer.ActorNumber);
-        GameObject playerObj = PhotonNetwork.Instantiate(playerPreFabLocations[/*(PhotonNetwork.LocalPlayer.ActorNumber-1)*/3], spawnPoints[3/*(PhotonNetwork.LocalPlayer.ActorNumber - 1)*/].position, Quaternion.identity);/*Random.Range(0, spawnPoints.Length)].position, Quaternion.identity)*/
+        GameObject playerObj = PhotonNetwork.Instantiate(playerPreFabLocations[(PhotonNetwork.LocalPlayer.ActorNumber-1)], spawnPoints[(PhotonNetwork.LocalPlayer.ActorNumber - 1)].position, Quaternion.identity);/*Random.Range(0, spawnPoints.Length)].position, Quaternion.identity)*/
 
         // initialze the player for all players
         playerObj.GetComponent<PlayerController>().photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
