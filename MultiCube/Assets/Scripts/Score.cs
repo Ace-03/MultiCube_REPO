@@ -52,17 +52,3 @@ public class Score : MonoBehaviourPun, IPunObservable
     }
     
 }
-
-/*
-   void Update()
-    {
-        scoreText.text = (PhotonNetwork.Time).ToString("F2"); ;
-    }
-
-    [PunRPC]
-    public void Begin()
-    {
-        startTime = PhotonNetwork.Time;
-    }
-}
-*/

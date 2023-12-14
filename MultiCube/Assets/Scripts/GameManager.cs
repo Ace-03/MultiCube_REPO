@@ -7,15 +7,12 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviourPun
 {
-    //bool gameHasEnded = false;
-    //public float restartDelay = 1f;
+    
     public GameObject completeLevelUI;
     public PlayerController playerController;
     public float restartDelay = 200f;
     public Score score;
-    //public Leaderboard leaderboard;
-
-    //public Player photonPlayer;
+    
 
     [Header("Players")]
     public string playerPreFabLocation;
@@ -36,7 +33,6 @@ public class GameManager : MonoBehaviourPun
     {
         completeLevelUI.SetActive(true);
         Invoke("EndScreen", restartDelay);
-        //leaderboard.OnGameEnd();
         score.End();
     }
 
@@ -45,26 +41,6 @@ public class GameManager : MonoBehaviourPun
     {
         NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Credits");
     }
-    /*
-    [PunRPC]
-    public void EndGame()
-    {
-        if (gameHasEnded == false)
-        {
-            gameHasEnded = true;
-            Debug.Log("Game Over");
-            Invoke("Restart", restartDelay);
-        }
-    }
-    */
-
-    /*
-    [PunRPC]
-    void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    */
 
     // Multiplayer
     private void Awake()
@@ -124,20 +100,9 @@ public class GameManager : MonoBehaviourPun
         return null;
     }
 
-    /*
-    public void CheckWinCondition()
-    {
-        if (alivePlayers == 1)
-            photonView.RPC("WinGame", RpcTarget.All, players.First(x => !x.dead).id);
-    }
-    */
-
     [PunRPC]
     void WinGame(int winningPlayer)
     {
-        // set the UI win text
-        //GameUI.instance.SetWinText(GetPlayer(winningPlayer).photonPlayer.NickName);
-
         Invoke("GoBackToMenu", postGameTime);
     }
 
