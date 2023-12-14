@@ -10,6 +10,7 @@ public class Score : MonoBehaviourPun, IPunObservable
     //public Transform player;
     public TextMeshProUGUI scoreText;
     private float startTime;
+    private float timeTaken;
 
     [PunRPC]
     public void Start()
@@ -29,7 +30,15 @@ public class Score : MonoBehaviourPun, IPunObservable
         
     }
 
+    public void End()
+    {
+        timeTaken = Time.time - startTime;
+
+        Leaderboard.instance.SetLeaderboardEntry(-Mathf.RoundToInt(timeTaken * 1000.0f));
+        //Leaderboard.instance.SetLeaderboardEntry(scoreText.text);
+    }
     
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)

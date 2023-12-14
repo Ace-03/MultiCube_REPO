@@ -8,8 +8,8 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collisionInfo.collider.tag == "obstacle") 
         {
-            controller.enabled = false;
-            FindObjectOfType<PlayerController>().EndGame();
+            //controller.enabled = false;
+            //FindObjectOfType<PlayerController>().EndGame();
         }
     }
 }

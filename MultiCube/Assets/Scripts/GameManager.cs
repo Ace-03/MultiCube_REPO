@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviourPun
 {
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviourPun
     //public float restartDelay = 1f;
     public GameObject completeLevelUI;
     public PlayerController playerController;
+    public float restartDelay = 200f;
+    public Score score;
+    //public Leaderboard leaderboard;
+
     //public Player photonPlayer;
 
     [Header("Players")]
@@ -30,8 +35,16 @@ public class GameManager : MonoBehaviourPun
     public void CompleteLevel()
     {
         completeLevelUI.SetActive(true);
+        Invoke("EndScreen", restartDelay);
+        //leaderboard.OnGameEnd();
+        score.End();
     }
 
+    [PunRPC]
+    public void EndScreen()
+    {
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Credits");
+    }
     /*
     [PunRPC]
     public void EndGame()
@@ -65,6 +78,9 @@ public class GameManager : MonoBehaviourPun
         alivePlayers = players.Length;
 
         photonView.RPC("ImInGame", RpcTarget.AllBuffered);
+
+
+        
     }
 
     [PunRPC]

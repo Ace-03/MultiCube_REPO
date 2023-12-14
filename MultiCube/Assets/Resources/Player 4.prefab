@@ -137,7 +137,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 1
 --- !u!114 &8111506507851820881
 MonoBehaviour:
@@ -227,8 +227,8 @@ MonoBehaviour:
   id: 0
   rig: {fileID: 8111506507851820843}
   rb: {fileID: 8111506507851820843}
-  fowardforce: 8000
-  sidewaysforce: 120
+  fowardforce: -4000
+  sidewaysforce: -120
 --- !u!1001 &4087187586462255265
 PrefabInstance:
   m_ObjectHideFlags: 0
