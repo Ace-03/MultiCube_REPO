@@ -4,7 +4,7 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class Score : MonoBehaviourPun
+public class Score : MonoBehaviourPun, IPunObservable
 {
 
     //public Transform player;
@@ -29,6 +29,18 @@ public class Score : MonoBehaviourPun
         
     }
 
+    
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(scoreText.text);
+        }
+        else if (stream.IsReading)
+        {
+            scoreText.text = (string)stream.ReceiveNext();
+        }
+    }
     
 }
 
